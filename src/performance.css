@@ -1,0 +1,70 @@
+/* Performance optimizations - disable expensive effects */
+* {
+  /* Disable backdrop filters and blur effects */
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Optimize animations */
+*, *::before, *::after {
+  animation-duration: 0.2s !important;
+  transition-duration: 0.2s !important;
+}
+
+/* Disable heavy shadows and gradients */
+.shadow-2xl {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Force solid backgrounds */
+.bg-gradient-to-br,
+.bg-gradient-to-t,
+.bg-gradient-to-r {
+  background-image: none !important;
+}
+
+/* Optimize transforms */
+.transform {
+  will-change: transform;
+}
+
+/* Disable expensive filters */
+.blur-md,
+.blur-sm,
+.blur-lg {
+  filter: none !important;
+}
+
+/* Fast hover states */
+.hover\\:shadow-lg:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Optimize opacity transitions */
+.transition-opacity {
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.15s;
+}
+
+/* Disable backdrop blur specifically */
+.backdrop-blur-md,
+.backdrop-blur-sm,
+.backdrop-blur-lg {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Fast, clean theme for performance */
+.xraider-fast {
+  /* Remove all expensive visual effects */
+  background: white;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: none;
+}
+
+.dark .xraider-fast {
+  background: #1f2937;
+  border-color: #374151;
+}
