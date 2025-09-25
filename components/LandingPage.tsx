@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
-import { FileText, Upload, Download, History, CheckCircle } from "lucide-react";
+import { FileText, Upload, Download, CheckCircle } from "lucide-react";
 
 export function LandingPage() {
   const { loginWithGoogle, isLoading, user } = useAuth();

@@ -8,9 +8,9 @@ import {
   Save, 
   Eye, 
   FileText, 
-  RotateCcw,
+  // RotateCcw,
   CheckCircle,
-  AlertTriangle
+  // AlertTriangle
 } from 'lucide-react';
 import { GoogleDriveService } from '../services/GoogleDriveService';
 
@@ -57,7 +57,7 @@ export function CompareChanges({
 
   const generateChangesSummary = () => {
     // Analyze changes between original and formatted text
-    const originalLines = originalText.split('\n');
+  // const originalLines = originalText.split('\n');
     const formattedLines = formattedText.split('\n');
     
     let headingsFixed = 0;

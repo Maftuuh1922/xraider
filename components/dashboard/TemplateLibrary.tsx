@@ -12,14 +12,13 @@ import {
   FileText, 
   Download, 
   Trash2, 
-  Edit,
   University,
   Search,
   Filter,
   Star,
   StarOff
 } from 'lucide-react';
-import type { DriveFile } from '../services/GoogleDriveService';
+// import type { DriveFile } from '../services/GoogleDriveService';
 import { GoogleDriveService } from '../services/GoogleDriveService';
 
 interface Template {
