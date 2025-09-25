@@ -1,7 +1,6 @@
 import { Document, Packer, Paragraph, HeadingLevel, TextRun, AlignmentType } from 'docx';
 import { GlobalWorkerOptions, getDocument } from 'pdfjs-dist';
 // Lightweight PDF generation for valid, non‑corrupt PDF output
-
 import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
 // Vite: import worker as URL
 // @ts-ignore - query param import
