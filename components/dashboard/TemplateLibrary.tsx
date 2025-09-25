@@ -133,14 +133,7 @@ export function TemplateLibrary({ driveService, onSelectTemplate }: TemplateLibr
     setIsAddingTemplate(true);
     try {
       // Upload template to Google Drive
-      const templateMetadata = {
-        name: newTemplate.name,
-        description: newTemplate.description,
-        institution: newTemplate.institution,
-        category: newTemplate.category
-      };
-
-  await driveService.saveTemplate(newTemplate.file);
+      await driveService.saveTemplate(newTemplate.file);
       
       toast.success('Template berhasil disimpan');
       setNewTemplate({
