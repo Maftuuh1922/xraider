@@ -210,6 +210,7 @@ class DocumentFormatter {
         tables: [],
         figures: [],
         references: [],
+        appendices: [],
       };
     }
   }
