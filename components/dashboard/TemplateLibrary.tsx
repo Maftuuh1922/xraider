@@ -140,7 +140,7 @@ export function TemplateLibrary({ driveService, onSelectTemplate }: TemplateLibr
         category: newTemplate.category
       };
 
-      await driveService.saveTemplate(newTemplate.file, templateMetadata);
+  await driveService.saveTemplate(newTemplate.file);
       
       toast.success('Template berhasil disimpan');
       setNewTemplate({
