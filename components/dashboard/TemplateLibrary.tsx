@@ -19,7 +19,8 @@ import {
   Star,
   StarOff
 } from 'lucide-react';
-import { GoogleDriveService, DriveFile } from '../services/GoogleDriveService';
+import type { DriveFile } from '../services/GoogleDriveService';
+import { GoogleDriveService } from '../services/GoogleDriveService';
 
 interface Template {
   id: string;
@@ -48,7 +49,7 @@ export function TemplateLibrary({ driveService, onSelectTemplate }: TemplateLibr
   const [selectedInstitution, setSelectedInstitution] = useState<string>('all');
   const [isLoading, setIsLoading] = useState(false);
   const [isAddingTemplate, setIsAddingTemplate] = useState(false);
-  const [editingTemplate, setEditingTemplate] = useState<Template | null>(null);
+  // const [editingTemplate, setEditingTemplate] = useState<Template | null>(null);
 
   // New template form
   const [newTemplate, setNewTemplate] = useState({
@@ -86,7 +87,7 @@ export function TemplateLibrary({ driveService, onSelectTemplate }: TemplateLibr
         createdAt: file.createdTime,
         updatedAt: file.modifiedTime,
         isFavorite: false,
-        fileSize: file.size || 0,
+        fileSize: typeof file.size === 'string' ? parseInt(file.size, 10) || 0 : (file.size || 0),
         fileType: file.name.toLowerCase().endsWith('.pdf') ? 'pdf' : 'docx'
       }));
       
@@ -183,7 +184,9 @@ export function TemplateLibrary({ driveService, onSelectTemplate }: TemplateLibr
   };
 
   const handleSelectTemplate = (template: Template) => {
-    onSelectTemplate?.(template);
+    if (onSelectTemplate) {
+      onSelectTemplate(template);
+    }
     toast.success(`Template "${template.name}" dipilih`);
   };
 
@@ -207,7 +210,7 @@ export function TemplateLibrary({ driveService, onSelectTemplate }: TemplateLibr
       report: 'Laporan',
       proposal: 'Proposal',
       other: 'Lainnya'
-    };
+    } as const;
     return labels[category];
   };
 
@@ -446,10 +449,11 @@ export function TemplateLibrary({ driveService, onSelectTemplate }: TemplateLibr
                   >
                     Gunakan Template
                   </Button>
+                  {/* Download button placeholder, implement if needed */}
                   <Button
                     variant="outline"
                     size="sm"
-                    onClick={() => {/* Download template */}}
+                    disabled
                   >
                     <Download className="w-4 h-4" />
                   </Button>
